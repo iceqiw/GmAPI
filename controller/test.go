@@ -1,7 +1,7 @@
 package controller
 
 import (
-	// "fmt"
+	"log"
 	"github.com/gin-gonic/gin"
 	"github.com/GmApi/model"
 	"github.com/GmApi/helper"
@@ -27,6 +27,17 @@ func PageGet(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"message": "user",
 	})
+}
+
+func PageAdd(c *gin.Context) {
+	userModel := model.User{}
+	if c.BindJSON(&userModel) == nil {
+		user,err:=userModel.Insert()
+		log.Println("Println err",err)
+		c.JSON(200, gin.H{
+			"model": user,
+		})
+	}
 }
 
 func PageGetAll(c *gin.Context) {

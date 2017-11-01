@@ -21,6 +21,7 @@ func main() {
 		api.GET("/ping",controller.IndexGet)
 		api.GET("/page/:id", controller.PageGet)
 		api.GET("/all/page", controller.PageGetAll)
+		api.POST("/add/page", controller.PageAdd)
 	}
 
 	router.Run() // listen and serve on 0.0.0.0:8080
@@ -28,7 +29,8 @@ func main() {
 
 func Cors() gin.HandlerFunc {
     return func(c *gin.Context) {
-        c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		// c.Writer.Header().Set("content-type ", "application/json; charset=utf-8")
         c.Next()
     }
 }
