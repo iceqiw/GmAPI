@@ -22,6 +22,10 @@ func main() {
 		api.GET("/page/:id", controller.PageGet)
 		api.GET("/all/page", controller.PageGetAll)
 		api.POST("/add/page", controller.PageAdd)
+
+		api.GET("/trainSearch/get/:id", controller.GetTrain)
+		api.GET("/trainSearch/page", controller.GetTrainPage)
+		api.POST("/trainSearch/add", controller.AddTrain)
 	}
 
 	router.Run() // listen and serve on 0.0.0.0:8080

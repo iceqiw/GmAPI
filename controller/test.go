@@ -24,9 +24,6 @@ func PageGet(c *gin.Context) {
 		})
 		return
 	}
-	c.JSON(200, gin.H{
-		"message": "user",
-	})
 }
 
 func PageAdd(c *gin.Context) {
