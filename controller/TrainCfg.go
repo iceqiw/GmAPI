@@ -19,7 +19,7 @@ func GetTrain(c *gin.Context) {
 
 func GetTrainPage(c *gin.Context) {
 	TrainSearchModel := &model.TrainSearch{}
-	trainSearchs, err := TrainSearchModel.GetList(1,5)
+	trainSearchs, err := TrainSearchModel.All()
 	if err == nil {
 		c.JSON(200, trainSearchs)
 		return
@@ -30,11 +30,14 @@ func GetTrainPage(c *gin.Context) {
 func AddTrain(c *gin.Context) {
 	TrainSearchModel := model.TrainSearch{}
 	if c.BindJSON(&TrainSearchModel) == nil {
-		ok,err:=TrainSearchModel.Insert()
-		log.Println("Println err",err)
-		c.JSON(200, gin.H{
-			"sussces": ok,
-		})
+		ok,err:=TrainSearchModel.Insert()	
+		if err==nil{
+			c.JSON(200, gin.H{
+				"sussces": ok,
+			})
+			return
+		}
+		log.Println("Println err",err)	
 	}
 }
 

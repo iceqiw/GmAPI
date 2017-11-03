@@ -15,8 +15,8 @@ func main() {
     }
 	defer db.Close()
 	router := gin.Default()
+	router.Use(Cors())
 	api :=router.Group("/api/g")
-	api.Use(Cors())
 	{
 		api.GET("/ping",controller.IndexGet)
 		api.GET("/page/:id", controller.PageGet)
@@ -33,8 +33,12 @@ func main() {
 
 func Cors() gin.HandlerFunc {
     return func(c *gin.Context) {
-		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-		// c.Writer.Header().Set("content-type ", "application/json; charset=utf-8")
+		// c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+        // c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+        // if c.Request.Method == "OPTIONS" {
+        //     c.AbortWithStatus(200)
+        //     return
+        // }
         c.Next()
     }
 }
