@@ -41,3 +41,14 @@ func AddTrain(c *gin.Context) {
 	}
 }
 
+func DelTrain(c *gin.Context) {
+	id, _ := helper.StrTo(c.Param("id")).Int64()
+	TrainSearchModel := &model.TrainSearch{Id:id}
+	ok, err := TrainSearchModel.Delete()
+	if err==nil{
+		c.JSON(200, gin.H{
+			"sussces": ok,
+		})
+		return
+	}
+}

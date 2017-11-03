@@ -26,6 +26,7 @@ func main() {
 		api.GET("/trainSearch/get/:id", controller.GetTrain)
 		api.GET("/trainSearch/page", controller.GetTrainPage)
 		api.POST("/trainSearch/add", controller.AddTrain)
+		api.DELETE("/trainSearch/del/:id", controller.DelTrain)
 	}
 
 	router.Run() // listen and serve on 0.0.0.0:8080
