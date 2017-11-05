@@ -52,3 +52,17 @@ func DelTrain(c *gin.Context) {
 		return
 	}
 }
+
+func EditTrain(c *gin.Context) {
+	TrainSearchModel := model.TrainSearch{}
+	if c.BindJSON(&TrainSearchModel) == nil {
+		ok,err:=TrainSearchModel.Update()
+		if err==nil{
+			c.JSON(200, gin.H{
+				"sussces": ok,
+			})
+			return
+		}
+		log.Println("Println err",err)	
+	}
+}
