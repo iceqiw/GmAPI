@@ -3,8 +3,8 @@ package controller
 import (
 	"log"
 	"github.com/gin-gonic/gin"
-	"github.com/GmApi/model"
-	"github.com/GmApi/helper"
+	"github.com/GmAPI/model"
+	"github.com/GmAPI/helper"
 )
 
 func GetTrain(c *gin.Context) {

@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/gin-gonic/gin"
-	"github.com/GmApi/controller"
-	"github.com/GmApi/model"
+	"github.com/GmAPI/controller"
+	"github.com/GmAPI/model"
 
 )
 

@@ -8,7 +8,7 @@ import (
 var orm *xorm.Engine 
 
 func InitDB() (*xorm.Engine , error) {
-	engeine, err := xorm.NewEngine("mysql", "root:123456@/test?charset=utf8")
+	engeine, err := xorm.NewEngine("mysql", "qiwei:123456@/test?charset=utf8")
 	if err == nil {
 		orm = engeine
 		orm.Sync(new(TrainSearch))
